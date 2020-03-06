@@ -1,6 +1,8 @@
 language: bash
 services: docker
-
+arch: 
+  - amd64
+  - arm64
 env:
   - NAME=6.3 WORKDIR=fresh/debian
   - NAME=6.0 WORKDIR=stable/debian
