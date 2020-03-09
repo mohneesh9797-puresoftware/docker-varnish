@@ -18,7 +18,7 @@ RUN set -ex; \
 	rm -rf $GNUPGHOME; \
 	echo deb https://packagecloud.io/varnishcache/varnish60lts/debian/ stretch main > /etc/apt/sources.list.d/varnish.list; \
 	apt-get update; \
-	apt search varnish 
+	apt search varnish; \
 	apt-get install -y --no-install-recommends varnish=$VARNISH_VERSION; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps; \
 	rm -rf /var/lib/apt/lists/*
