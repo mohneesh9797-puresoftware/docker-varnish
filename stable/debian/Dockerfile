@@ -1,6 +1,4 @@
 FROM debian:stretch-slim
-
-ENV VARNISH_VERSION 
 ENV SIZE 100M
 
 RUN set -ex; \
@@ -19,7 +17,7 @@ RUN set -ex; \
 	echo deb https://packagecloud.io/varnishcache/varnish60lts/debian/ stretch main > /etc/apt/sources.list.d/varnish.list; \
 	apt-get update; \
 	apt search varnish; \
-	apt-get install -y --no-install-recommends varnish=$VARNISH_VERSION; \
+	apt-get install -y --no-install-recommends varnish; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps; \
 	rm -rf /var/lib/apt/lists/*
 
