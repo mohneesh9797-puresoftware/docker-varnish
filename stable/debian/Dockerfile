@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ENV VARNISH_VERSION 6.0.6-1~stretch
+ENV VARNISH_VERSION 
 ENV SIZE 100M
 
 RUN set -ex; \
