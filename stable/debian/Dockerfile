@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:buster
 ENV SIZE 100M
 
 RUN set -ex; \
