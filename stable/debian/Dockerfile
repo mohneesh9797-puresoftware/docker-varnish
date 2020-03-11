@@ -8,9 +8,8 @@ RUN set -ex; \
 	"; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends apt-transport-https ca-certificates $fetchDeps; \
-	echo deb https://packagecloud.io/varnishcache/varnish60lts/debian/ buster main > /etc/apt/sources.list.d/varnish.list; \
 	apt-get update; \
-	apt search varnish; \
+	apt search libvarnishapi-dev; \
 	apt-get install -y --no-install-recommends varnish; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps; \
 	rm -rf /var/lib/apt/lists/*
