@@ -10,10 +10,6 @@ RUN set -ex; \
 	apt-get install -y --no-install-recommends apt-transport-https ca-certificates $fetchDeps; \
 	key=48D81A24CB0456F5D59431D94CFCFD6BA750EDCD; \
 	export GNUPGHOME="$(mktemp -d)"; \
-	gpg --batch --keyserver hkps://hkps.pool.sks-keyservers.net --recv-keys $key; \
-	gpg --batch --export export $key > /etc/apt/trusted.gpg.d/varnish.gpg; \
-	gpgconf --kill all; \
-	rm -rf $GNUPGHOME; \
 	echo deb https://packagecloud.io/varnishcache/varnish60lts/debian/ stretch main > /etc/apt/sources.list.d/varnish.list; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends varnish; \
