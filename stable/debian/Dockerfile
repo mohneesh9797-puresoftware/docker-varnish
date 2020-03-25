@@ -7,11 +7,6 @@ RUN set -ex; \
 		gnupg \
 	"; \
 	apt-get update; \
-	apt-get install -y --no-install-recommends apt-transport-https ca-certificates $fetchDeps; \
-	key=48D81A24CB0456F5D59431D94CFCFD6BA750EDCD; \
-	export GNUPGHOME="$(mktemp -d)"; \
-	echo deb https://packagecloud.io/varnishcache/varnish60lts/debian/ stretch main > /etc/apt/sources.list.d/varnish.list; \
-	apt-get update; \
 	apt-get install -y --no-install-recommends varnish; \
 	apt -a show varnish; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps; \
